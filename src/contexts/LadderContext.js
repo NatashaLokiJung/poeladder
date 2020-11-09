@@ -4,16 +4,15 @@ export const ladderContext = createContext();
 
 const LadderContextProvider = (props) => {
     const [ladderData, setLadderData] = useState();
-    const [ladderIdentity, setLadderIdentity] = useState();
 
     useEffect(() => {
-        fetch("http://api.pathofexile.com/ladders/Heist?accountName=Natilo", {
+        fetch("http://api.pathofexile.com/ladders/Heist", {
             method: "GET",
         })
             .then((response) => response.json())
             .then((result) => {
-                setLadderData(result);
-                console.log("fra context", result);
+                setLadderData(result.entries);
+                console.log("fra context", result.entries);
             });
     }, []);
 
@@ -21,8 +20,6 @@ const LadderContextProvider = (props) => {
         <ladderContext.Provider
             value={{
                 ladderData,
-                ladderIdentity,
-                setLadderIdentity,
             }}
         >
             {props.children}
