@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Min egen app til PoE ladder (9. november 2020 - 20. november 2020)
 
 ## Available Scripts
 
