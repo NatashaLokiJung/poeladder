@@ -1,7 +1,6 @@
 import { css } from "@emotion/core";
 import { Link } from "@reach/router";
 import { useContext } from "react";
-import CurrentLadder from "./conponents/CurrentLadder";
 import User from "./conponents/User";
 import { ladderContext } from "./contexts/LadderContext";
 
@@ -39,6 +38,7 @@ function App() {
                                 rank={"Rank: " + entries.rank}
                                 name={"User: " + entries.account.name}
                                 level={"Level: " + entries.character.level}
+                                cclass={"Class: " + entries.character.class}
                             />
                         </div>
                     </Link>

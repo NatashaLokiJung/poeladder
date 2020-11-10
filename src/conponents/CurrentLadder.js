@@ -21,7 +21,7 @@ const CurrentLadder = (props) => {
 
     return (
         <div css={ui}>
-            <a href="/realm">realm</a>
+            <h1>hej</h1>
         </div>
     );
 };
