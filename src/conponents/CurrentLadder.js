@@ -1,3 +1,4 @@
+/** @jsxImportSource @emotion/core */
 import { css } from "@emotion/core";
 import { useContext, useState, useEffect } from "react";
 import { ladderContext } from "../contexts/LadderContext";
