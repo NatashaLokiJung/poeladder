@@ -1,12 +1,10 @@
-/** @jsxImportSource @emotion/core */
-import { css } from "@emotion/core";
 import React from "react";
 import ReactDOM from "react-dom";
 import { Router } from "@reach/router";
 import "./index.css";
 import App from "./App";
 import LadderContextProvider from "./contexts/LadderContext";
-import CurrentLadder from "./conponents/CurrentLadder";
+import CurrentUser from "./conponents/CurrentUser";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
@@ -14,7 +12,7 @@ ReactDOM.render(
         <LadderContextProvider>
             <Router>
                 <App path="/" />
-                <CurrentLadder path="/?accountName=" />
+                <CurrentUser path="/?accountName=" />
             </Router>
         </LadderContextProvider>
     </React.StrictMode>,
