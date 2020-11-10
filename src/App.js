@@ -6,6 +6,7 @@ import BG from "./img/heistbg.jpg";
 import logo from "./img/heistheaderlogo.png";
 import User from "./conponents/User";
 import { ladderContext } from "./contexts/LadderContext";
+import Nav from "./conponents/Nav";
 
 function App() {
     const containerLogo = css`
@@ -33,11 +34,12 @@ function App() {
             <div css={containerLogo}>
                 <img src={logo} alt="Logo" />
             </div>
+            <Nav />
 
             <div css={containerUser}>
                 {ladderData.map((entries) => (
                     <Link
-                        to={"/?accountName=" + entries.account.name}
+                        to={entries.account.name}
                         style={{ textDecoration: "none" }}
                     >
                         <User

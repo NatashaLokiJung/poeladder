@@ -16,7 +16,6 @@ const User = ({ rank, name, cname, level, cclass, challenges }) => {
             style={{
                 backgroundImage: `url(${bgFrame})`,
                 backgroundRepeat: "no-repeat",
-                // backgroundSize: "contain",
             }}
         >
             <div css={style}>

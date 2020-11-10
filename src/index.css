@@ -39,4 +39,6 @@ h5 {
     font-size: 13px;
     line-height: 18px;
     font-weight: lighter;
+    padding: 5px 0;
+    color: white;
 }
