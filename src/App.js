@@ -49,11 +49,6 @@ function App() {
                             cname={"Character: " + entries.character.name}
                             cclass={"Class: " + entries.character.class}
                             level={"Level: " + entries.character.level}
-                            challenges={
-                                "Challenges completed: " +
-                                entries.account.challenges.total +
-                                " out of 40"
-                            }
                         />
                     </Link>
                 ))}
