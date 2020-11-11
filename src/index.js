@@ -12,7 +12,7 @@ ReactDOM.render(
         <LadderContextProvider>
             <Router>
                 <App path="/" />
-                <CurrentUser path="/?accountName=" />
+                <CurrentUser path="/:accountName" />
             </Router>
         </LadderContextProvider>
     </React.StrictMode>,
