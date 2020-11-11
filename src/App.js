@@ -1,15 +1,49 @@
 /** @jsxImportSource @emotion/core */
 import { css } from "@emotion/core";
 import { Link } from "@reach/router";
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
+import ReactPaginate from "react-paginate";
+import { ladderContext } from "./contexts/LadderContext";
 import BG from "./img/heistbg.jpg";
 import logo from "./img/heistheaderlogo.png";
 import User from "./conponents/User";
-import { ladderContext } from "./contexts/LadderContext";
 import Nav from "./conponents/Nav";
 import Footer from "./conponents/Footer";
 
 function App() {
+    const PER_PAGE = 75;
+    const [currentPage, setCurrentPage] = useState(0);
+    const [data, setData] = useState([]);
+    const [totalEntries, setTotalEntries] = useState(0);
+    const offset = currentPage * PER_PAGE;
+    console.log(offset);
+    useEffect(() => {
+        fetch(
+            `http://api.pathofexile.com/ladders/Heist?limit=75&offset=${offset}`,
+            {
+                method: "GET",
+            }
+        )
+            .then((response) => response.json())
+            .then((result) => {
+                setData(result.entries);
+                setTotalEntries(result.total);
+            });
+    }, [offset]);
+
+    data && console.log(data);
+    console.log(totalEntries);
+
+    function handlePageClick({ selected: selectedPage }) {
+        setCurrentPage(selectedPage);
+    }
+
+    const currentPageData =
+        data &&
+        data.slice(offset, offset + PER_PAGE).map(({ entries }) => entries);
+
+    const pageCount = Math.ceil(totalEntries / PER_PAGE);
+
     const containerLogo = css`
         display: flex;
         justify-content: center;
@@ -20,6 +54,11 @@ function App() {
         display: grid;
         grid-gap: 10px;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    `;
+
+    const paginationStyle = css`
+        display: flex;
+        justify-content: center;
     `;
 
     const { ladderData } = useContext(ladderContext);
@@ -38,7 +77,7 @@ function App() {
             <Nav />
 
             <div css={containerUser}>
-                {ladderData.map((entries) => (
+                {data.map((entries) => (
                     <Link
                         to={entries.account.name}
                         style={{ textDecoration: "none" }}
@@ -52,6 +91,20 @@ function App() {
                         />
                     </Link>
                 ))}
+            </div>
+            <div css={paginationStyle}>
+                <ReactPaginate
+                    previousLabel={"← Previous"}
+                    nextLabel={"Next →"}
+                    pageCount={pageCount}
+                    onPageChange={handlePageClick}
+                    containerClassName={"pagination"}
+                    previousLinkClassName={"pagination__link"}
+                    nextLinkClassName={"pagination__link"}
+                    disabledClassName={"pagination__link--disabled"}
+                    activeClassName={"pagination__link--active"}
+                />
+                {currentPageData}
             </div>
             <Footer />
         </div>

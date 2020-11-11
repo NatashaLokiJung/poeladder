@@ -24,7 +24,7 @@ const SearchAccount = () => {
     `;
     return (
         <div css={styleSearch}>
-            <label for="searchbar">
+            <label>
                 <h5>Search:</h5>
             </label>
             <input

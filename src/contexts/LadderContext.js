@@ -6,12 +6,9 @@ const LadderContextProvider = (props) => {
     const [ladderData, setLadderData] = useState();
 
     useEffect(() => {
-        fetch(
-            "http://api.pathofexile.com/ladders/Heist?offset=7080&limit=100",
-            {
-                method: "GET",
-            }
-        )
+        fetch("http://api.pathofexile.com/ladders/Heist", {
+            method: "GET",
+        })
             .then((response) => response.json())
             .then((result) => {
                 setLadderData(result.entries);
