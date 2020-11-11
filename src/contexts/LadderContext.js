@@ -12,7 +12,7 @@ const LadderContextProvider = (props) => {
             .then((response) => response.json())
             .then((result) => {
                 setLadderData(result.entries);
-                console.log("fra context", result.entries);
+                // console.log("fra context", result.entries);
             });
     }, []);
 

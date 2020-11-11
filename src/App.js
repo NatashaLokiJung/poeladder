@@ -7,6 +7,7 @@ import logo from "./img/heistheaderlogo.png";
 import User from "./conponents/User";
 import { ladderContext } from "./contexts/LadderContext";
 import Nav from "./conponents/Nav";
+import Footer from "./conponents/Footer";
 
 function App() {
     const containerLogo = css`
@@ -57,6 +58,7 @@ function App() {
                     </Link>
                 ))}
             </div>
+            <Footer />
         </div>
     ) : null;
 }
