@@ -14,11 +14,13 @@ const SelectClass = () => {
         border-radius: 2px;
         border: none;
         position: relative;
+        background: #6d6a65;
+        color: white;
     `;
     return (
         <div css={styleClass}>
             <label>
-                <h5>Class:</h5>
+                <h5>Sort by class:</h5>
             </label>
             <select css={styleSelectClass} id="characterClass">
                 <option value="All">All classes</option>
