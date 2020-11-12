@@ -16,7 +16,7 @@ function App() {
     const [data, setData] = useState([]);
     const [totalEntries, setTotalEntries] = useState(0);
     const offset = currentPage * PER_PAGE;
-    console.log(offset);
+
     useEffect(() => {
         fetch(
             `http://api.pathofexile.com/ladders/Heist?limit=75&offset=${offset}`,
@@ -30,9 +30,6 @@ function App() {
                 setTotalEntries(result.total);
             });
     }, [offset]);
-
-    data && console.log(data);
-    console.log(totalEntries);
 
     function handlePageClick({ selected: selectedPage }) {
         setCurrentPage(selectedPage);
@@ -51,8 +48,9 @@ function App() {
     `;
 
     const containerUser = css`
+        padding: 0 30px;
         display: grid;
-        grid-gap: 10px;
+        grid-gap: 2px;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     `;
 
@@ -92,10 +90,11 @@ function App() {
                     </Link>
                 ))}
             </div>
+
             <div css={paginationStyle}>
                 <ReactPaginate
-                    previousLabel={"← Previous"}
-                    nextLabel={"Next →"}
+                    previousLabel={"Previous"}
+                    nextLabel={"Next"}
                     pageCount={pageCount}
                     onPageChange={handlePageClick}
                     containerClassName={"pagination"}
@@ -106,6 +105,7 @@ function App() {
                 />
                 {currentPageData}
             </div>
+
             <Footer />
         </div>
     ) : null;

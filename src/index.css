@@ -40,7 +40,11 @@ h5 {
     line-height: 18px;
     font-weight: lighter;
     padding: 5px 0;
-    color: white;
+    color: #a38d6d;
+}
+
+a {
+    color: #a38d6d;
 }
 
 /* PAGINATION */
@@ -50,13 +54,15 @@ h5 {
     justify-content: space-between;
     list-style: none;
     cursor: pointer;
+    padding: 30px 0;
+    width: 500px;
 }
 
 .pagination a {
     padding: 10px;
     border-radius: 5px;
-    border: 1px solid #6c7ac9;
-    color: #6c7ac9;
+
+    color: #a38d6d;
 }
 
 .pagination__link {
@@ -65,10 +71,9 @@ h5 {
 
 .pagination__link--active a {
     color: #fff;
-    background: #6c7ac9;
+    background: #412c0d;
 }
 
 .pagination__link--disabled a {
-    color: rgb(198, 197, 202);
-    border: 1px solid rgb(198, 197, 202);
+    color: #6d6a65;
 }
