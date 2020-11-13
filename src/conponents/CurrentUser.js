@@ -4,13 +4,37 @@ import { Link } from "@reach/router";
 import { useContext, useState, useEffect } from "react";
 import { ladderContext } from "../contexts/LadderContext";
 
-import BG from "../img/heistbg.jpg";
-
-import Footer from "./Footer";
-import Logo from "./Logo";
 import SelectedUser from "./SelectedUser";
 
 const CurrentUser = (props) => {
+    const { ladderData } = useContext(ladderContext);
+    const [current, setCurrent] = useState(null);
+    const [user, setUser] = useState(null);
+
+    const accountName = props.accountName;
+
+    useEffect(() => {
+        ladderData &&
+            setCurrent(
+                ladderData.find(
+                    (ladder) => props.accountName === ladder.account.name
+                )
+            );
+    }, [props.accountName, ladderData]);
+
+    useEffect(() => {
+        fetch(
+            `http://api.pathofexile.com/ladders/Heist?accountName=${accountName}`,
+            {
+                method: "GET",
+            }
+        )
+            .then((response) => response.json())
+            .then((result) => {
+                setUser(result.entries[0]);
+            });
+    }, [accountName]);
+
     const linkBtn = css`
         padding: 20px;
     `;
@@ -26,52 +50,25 @@ const CurrentUser = (props) => {
         );
     `;
 
-    const { ladderData } = useContext(ladderContext);
-    const [current, setCurrent] = useState(null);
-
-    useEffect(() => {
-        ladderData &&
-            setCurrent(
-                ladderData.find(
-                    (ladder) => props.accountName === ladder.account.name
-                )
-            );
-    }, [props.accountName, ladderData]);
-
-    return current ? (
-        <div
-            style={{
-                backgroundImage: `url(${BG})`,
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "contain",
-            }}
-        >
-            <Logo />
+    return (
+        user && (
             <div>
                 <div css={linkBtn}>
                     <Link to="../">Back</Link>
                 </div>
                 <div css={userGradient}>
                     <SelectedUser
-                        rank={"Rank " + current.rank}
-                        name={"User: " + current.account.name}
-                        cname={"Character: " + current.character.name}
-                        cclass={"Class: " + current.character.class}
-                        level={"Level: " + current.character.level}
-                        experience={
-                            "Experience: " + current.character.experience
-                        }
-                        challenges={
-                            "Challenges completed: " +
-                            current.account.challenges.total +
-                            " out of 40"
-                        }
+                        rank={"Rank " + user.rank}
+                        name={"User: " + user.character.name}
+                        cname={"Character: " + user.character.name}
+                        cclass={"Class: " + user.character.class}
+                        level={"Level: " + user.character.level}
+                        experience={"Experience: " + user.character.experience}
                     />
                 </div>
-                <Footer />
             </div>
-        </div>
-    ) : null;
+        )
+    );
 };
 
 export default CurrentUser;

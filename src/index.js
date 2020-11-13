@@ -1,20 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Router } from "@reach/router";
 import "./index.css";
 import App from "./App";
-import LadderContextProvider from "./contexts/LadderContext";
-import CurrentUser from "./conponents/CurrentUser";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
     <React.StrictMode>
-        <LadderContextProvider>
-            <Router>
-                <App path="/" />
-                <CurrentUser path="/:accountName" />
-            </Router>
-        </LadderContextProvider>
+        <App />
     </React.StrictMode>,
     document.getElementById("root")
 );
