@@ -8,17 +8,14 @@ import SelectedUser from "./SelectedUser";
 
 const CurrentUser = (props) => {
     const { ladderData } = useContext(ladderContext);
-    const [current, setCurrent] = useState(null);
     const [user, setUser] = useState(null);
 
     const accountName = props.accountName;
 
     useEffect(() => {
         ladderData &&
-            setCurrent(
-                ladderData.find(
-                    (ladder) => props.accountName === ladder.account.name
-                )
+            ladderData.find(
+                (ladder) => props.accountName === ladder.account.name
             );
     }, [props.accountName, ladderData]);
 
