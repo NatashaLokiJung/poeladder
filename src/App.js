@@ -18,10 +18,8 @@ function App() {
             }}
         >
             <Logo />
-
             <Nav />
             <Main />
-
             <Footer />
         </div>
     ) : null;
