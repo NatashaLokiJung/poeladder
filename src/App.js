@@ -5,10 +5,10 @@ import { useContext, useState, useEffect } from "react";
 import ReactPaginate from "react-paginate";
 import { ladderContext } from "./contexts/LadderContext";
 import BG from "./img/heistbg.jpg";
-import logo from "./img/heistheaderlogo.png";
 import User from "./conponents/User";
 import Nav from "./conponents/Nav";
 import Footer from "./conponents/Footer";
+import Logo from "./conponents/Logo";
 
 function App() {
     const PER_PAGE = 75;
@@ -41,12 +41,6 @@ function App() {
 
     const pageCount = Math.ceil(totalEntries / PER_PAGE);
 
-    const containerLogo = css`
-        display: flex;
-        justify-content: center;
-        padding: 30px;
-    `;
-
     const containerUser = css`
         padding: 0 30px;
         display: grid;
@@ -69,9 +63,8 @@ function App() {
                 backgroundSize: "contain",
             }}
         >
-            <div css={containerLogo}>
-                <img src={logo} alt="Logo" />
-            </div>
+            <Logo />
+
             <Nav />
 
             <div css={containerUser}>
