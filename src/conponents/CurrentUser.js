@@ -32,10 +32,8 @@ const CurrentUser = (props) => {
             .then((response) => response.json())
             .then((result) => {
                 setUser(result.entries[0]);
-                console.log("fra currentuser", result.entries);
             });
     }, [accountName]);
-    user && console.log(user);
 
     const linkBtn = css`
         padding: 20px;
@@ -66,11 +64,6 @@ const CurrentUser = (props) => {
                         cclass={"Class: " + user.character.class}
                         level={"Level: " + user.character.level}
                         experience={"Experience: " + user.character.experience}
-                        // challenges={
-                        //     "Challenges completed: " +
-                        //     user.challenges.total +
-                        //     " out of 40"
-                        // }
                     />
                 </div>
             </div>

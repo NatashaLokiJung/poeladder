@@ -1,15 +1,7 @@
 /** @jsxImportSource @emotion/core */
 import { css } from "@emotion/core";
 
-const SelectedUser = ({
-    rank,
-    name,
-    cname,
-    level,
-    experience,
-    cclass,
-    challenges,
-}) => {
+const SelectedUser = ({ rank, name, cname, level, experience, cclass }) => {
     const container = css`
         width: 550px;
         padding: 1rem;
@@ -51,7 +43,6 @@ const SelectedUser = ({
                     <h4>{cclass}</h4>
                     <h4 css={uInfoOdd}>{level}</h4>
                     <h4>{experience}</h4>
-                    <h4 css={uInfoOdd}>{challenges}</h4>
                 </div>
             </div>
         </div>

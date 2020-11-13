@@ -1,6 +1,3 @@
-/** @jsxImportSource @emotion/core */
-import { css } from "@emotion/core";
-
 import { Router } from "@reach/router";
 import LadderContextProvider from "../contexts/LadderContext";
 import CurrentUser from "../conponents/CurrentUser";
