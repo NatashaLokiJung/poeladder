@@ -5,18 +5,12 @@ import { useContext, useState, useEffect } from "react";
 import { ladderContext } from "../contexts/LadderContext";
 
 import BG from "../img/heistbg.jpg";
-import logo from "../img/heistheaderlogo.png";
 
 import Footer from "./Footer";
+import Logo from "./Logo";
 import SelectedUser from "./SelectedUser";
 
 const CurrentUser = (props) => {
-    const containerLogo = css`
-        display: flex;
-        justify-content: center;
-        padding: 30px;
-    `;
-
     const linkBtn = css`
         padding: 20px;
     `;
@@ -52,9 +46,7 @@ const CurrentUser = (props) => {
                 backgroundSize: "contain",
             }}
         >
-            <div css={containerLogo}>
-                <img src={logo} alt="Logo" />
-            </div>
+            <Logo />
             <div>
                 <div css={linkBtn}>
                     <Link to="../">Back</Link>
