@@ -1,7 +1,24 @@
 /** @jsxImportSource @emotion/core */
 import { css } from "@emotion/core";
+import { useContext, useState } from "react";
+import { ladderContext } from "../contexts/LadderContext";
 
 const SelectClass = () => {
+    const { gameClass, setGameClass } = useContext(ladderContext);
+    const [bla, setBla] = useState("none");
+
+    console.log(bla);
+    console.log(gameClass);
+
+    // useEffect(() => {
+    //     if (gameClass) {
+    //         const result = data.entries.filter(
+    //             (entry) => entry.character.class === gameClass
+    //         );
+    //         console.log(result);
+    //     }
+    // }, [gameClass]);
+
     const styleClass = css`
         display: flex;
         flex-direction: column;
@@ -22,7 +39,14 @@ const SelectClass = () => {
             <label>
                 <h5>Sort by class:</h5>
             </label>
-            <select css={styleSelectClass} id="characterClass">
+            <select
+                css={styleSelectClass}
+                id="characterClass"
+                onChange={(e) => {
+                    setGameClass(e.target.value);
+                    setBla(e.target.value);
+                }}
+            >
                 <option value="All">All classes</option>
                 <option value="Ascendant">Ascendant</option>
                 <option value="Assassin">Assassin</option>

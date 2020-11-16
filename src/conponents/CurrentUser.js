@@ -3,12 +3,16 @@ import { css } from "@emotion/core";
 import { Link } from "@reach/router";
 import { useContext, useState, useEffect } from "react";
 import { ladderContext } from "../contexts/LadderContext";
+import { useLocation } from "@reach/router";
 
 import SelectedUser from "./SelectedUser";
 
 const CurrentUser = (props) => {
     const { ladderData } = useContext(ladderContext);
     const [user, setUser] = useState(null);
+
+    const location = useLocation();
+    console.log("fra currentuser", location.pathname);
 
     const accountName = props.accountName;
 

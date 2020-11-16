@@ -1,5 +1,6 @@
 // import { useContext } from "react";
 // import { ladderContext } from "./contexts/LadderContext";
+import LadderContextProvider from "./contexts/LadderContext";
 import BG from "./img/heistbg.jpg";
 import Nav from "./conponents/Nav";
 import Footer from "./conponents/Footer";
@@ -10,20 +11,22 @@ function App() {
     // const { ladderData } = useContext(ladderContext);
 
     return (
-        <div
-            style={{
-                backgroundImage: `url(${BG})`,
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "contain",
-            }}
-        >
-            <Logo />
+        <LadderContextProvider>
+            <div
+                style={{
+                    backgroundImage: `url(${BG})`,
+                    backgroundRepeat: "no-repeat",
+                    backgroundSize: "contain",
+                }}
+            >
+                <Logo />
 
-            <Nav />
-            <Main />
+                <Nav />
+                <Main />
 
-            <Footer />
-        </div>
+                <Footer />
+            </div>
+        </LadderContextProvider>
     );
 }
 
