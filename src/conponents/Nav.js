@@ -6,8 +6,6 @@ import SelectClass from "./SelectClass";
 import navImg from "../img/header.png";
 
 const Nav = (props) => {
-    // const accountName = props.accountName;
-
     const styleNav = css`
         display: flex;
         align-items: center;
@@ -32,7 +30,7 @@ const Nav = (props) => {
         <div css={styleNav}>
             <img src={navImg} alt="navigation header"></img>
             <div css={navContent}>
-                <SelectClass />
+                {/* <SelectClass /> */}
                 <SearchAccount />
             </div>
         </div>
