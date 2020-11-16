@@ -25,7 +25,7 @@ const CurrentUser = (props) => {
 
     useEffect(() => {
         fetch(
-            `http://api.pathofexile.com/ladders/Heist?accountName=${accountName}`,
+            `https://api.pathofexile.com/ladders/Heist?accountName=${accountName}`,
             {
                 method: "GET",
             }
