@@ -2,7 +2,7 @@
 import { css } from "@emotion/core";
 
 import SearchAccount from "./SearchAccount";
-import SelectClass from "./SelectClass";
+// import SelectClass from "./SelectClass";
 import navImg from "../img/header.png";
 
 const Nav = (props) => {
