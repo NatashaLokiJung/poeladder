@@ -1,7 +1,8 @@
 /** @jsxImportSource @emotion/core */
 import { css } from "@emotion/core";
+import { navigate } from "@reach/router";
 
-const SearchAccount = () => {
+const SearchAccount = (props) => {
     const styleSearch = css`
         width: 400px;
     `;
@@ -27,18 +28,26 @@ const SearchAccount = () => {
     `;
     return (
         <div css={styleSearch}>
-            <label>
-                <h5>Search username:</h5>
-            </label>
-            <input
-                css={searchInput}
-                type="text"
-                id="searchbar"
-                placeholder="Search character ..."
-            ></input>
-            <button css={searchBtn} type="submit" id="searchButton">
-                Send
-            </button>
+            <form
+                onSubmit={(event) => {
+                    event.preventDefault();
+                    const id = event.target.elements[0].value;
+                    event.target.reset();
+                    navigate(`/${id}`);
+                }}
+            >
+                <label>
+                    <h5>Search username:</h5>
+                </label>
+                <input
+                    css={searchInput}
+                    type="text"
+                    placeholder="Search username ..."
+                ></input>
+                <button css={searchBtn} type="submit">
+                    Send
+                </button>
+            </form>
         </div>
     );
 };
