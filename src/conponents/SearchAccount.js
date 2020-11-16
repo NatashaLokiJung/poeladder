@@ -2,7 +2,7 @@
 import { css } from "@emotion/core";
 import { navigate } from "@reach/router";
 
-const SearchAccount = (props) => {
+const SearchAccount = () => {
     const styleSearch = css`
         width: 400px;
     `;
@@ -26,6 +26,7 @@ const SearchAccount = (props) => {
         color: white;
         background-color: transparent;
     `;
+
     return (
         <div css={styleSearch}>
             <form
