@@ -21,7 +21,7 @@ const Home = () => {
 
     useEffect(() => {
         fetch(
-            `http://api.pathofexile.com/ladders/Heist?limit=75&offset=${offset}`,
+            `https://api.pathofexile.com/ladders/Heist?limit=75&offset=${offset}`,
             {
                 method: "GET",
             }
